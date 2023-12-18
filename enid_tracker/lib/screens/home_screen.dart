@@ -1,5 +1,7 @@
+import 'package:enid_tracker/screens/new_reminder_screen.dart';
 import 'package:enid_tracker/widgets/icon_circle.dart';
 import 'package:enid_tracker/widgets/medicine_panel.dart';
+import 'package:enid_tracker/logic/medicine_class.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -10,13 +12,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final List _panelData = [
-    'panel1',
-    'panel2',
-    'panel3',
-    'panel4',
-    'panel5',
-  ];
+  final List<Medicines> _panelData = [one, two, three, four];
   final List _iconData = [
     'icon1',
     'icon2',
@@ -32,13 +28,14 @@ class _HomePageState extends State<HomePage> {
       body: Flexible(
         child: Column(
           children: <Widget>[
+            // space to pull circle list view away from top
             SizedBox(
               height: 60,
               child: AppBar(
                 backgroundColor: Colors.blueGrey,
               ),
             ),
-
+            // Circle icon list view
             Container(
               color: Colors.grey,
               height: 120,
@@ -58,7 +55,7 @@ class _HomePageState extends State<HomePage> {
                 itemCount: _panelData.length,
                 itemBuilder: (context, index) {
                   return MedicinePanel(
-                    title: _panelData[index],
+                    title: _panelData[index].medicine,
                   );
                 },
               ),
@@ -68,9 +65,12 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => NewReminderScreen()));
+        },
         backgroundColor: Colors.amberAccent,
-        child: Icon(Icons.add_chart),
+        child: Icon(Icons.add),
       ),
     );
   }

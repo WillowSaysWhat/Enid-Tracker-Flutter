@@ -1,4 +1,3 @@
-import 'package:enid_tracker/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:enid_tracker/screens/welcome_screen.dart';
 
@@ -9,7 +8,7 @@ class Enid_tracker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: WelcomeScreen(),
     );
   }
