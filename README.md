@@ -14,6 +14,9 @@
   * [Software Stack](#software-stack)
   * [Widget Design](#widget-design)
 ## Description of the Application
+Enid Tracker is a cross-platform mobile aplication that monitors medicine consumption.
+
+Enid's user-friendly interface provides a hassle-free experience for users of all ages. The app allows individuals to effortlessly input and manage their medication schedules, setting reminders for each dosage to ensure timely and accurate intake. Leveraging Flutter's cross-platform capabilities, MediTrack offers a consistent and smooth experience on both Android and iOS devices.
 
 ## Software Elements
 
