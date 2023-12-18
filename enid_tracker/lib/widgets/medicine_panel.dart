@@ -16,8 +16,8 @@ class MedicinePanel extends StatelessWidget {
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: <Color>[
-              Colors.greenAccent,
-              Colors.green,
+              Colors.lightBlueAccent,
+              Colors.blueAccent,
             ],
           ),
           borderRadius: BorderRadius.all(
@@ -44,7 +44,7 @@ class MedicinePanel extends StatelessWidget {
                     style: const TextStyle(fontSize: 40),
                   ),
                 ),
-                Padding(
+                const Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text('100mg'),
                 ),
@@ -62,9 +62,14 @@ class MedicinePanel extends StatelessWidget {
               ],
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                SizedBox(
-                  width: 140,
+                Padding(
+                  padding: const EdgeInsets.only(left: 20, top: 40),
+                  child: Text(
+                    '20',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 30.0),
@@ -78,9 +83,6 @@ class MedicinePanel extends StatelessWidget {
                       ),
                     ),
                   ),
-                ),
-                SizedBox(
-                  width: 60,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 8.0),

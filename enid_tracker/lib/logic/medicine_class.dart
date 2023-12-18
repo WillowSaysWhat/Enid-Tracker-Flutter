@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class Medicines {
   // this is just a list really
   String medicine = 'Placeholder';

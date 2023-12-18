@@ -15,23 +15,23 @@ class IconCircle extends StatelessWidget {
           shape: BoxShape.circle,
           gradient: LinearGradient(
             colors: <Color>[
-              Colors.greenAccent,
-              Colors.green,
+              Colors.lightBlueAccent,
+              Colors.blueAccent,
             ],
           ),
           boxShadow: [
             BoxShadow(
                 color: Colors.black,
-                spreadRadius: 2,
-                blurRadius: 15,
-                offset: Offset(2, 8),
+                spreadRadius: 0.5,
+                blurRadius: 9,
+                offset: Offset(3, 10),
                 blurStyle: BlurStyle.normal),
           ],
         ),
         child: Center(
           child: Text(
             child,
-            style: TextStyle(fontSize: 20),
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
         ),
       ),

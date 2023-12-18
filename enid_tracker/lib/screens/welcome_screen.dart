@@ -25,7 +25,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   'assets/logo.png',
                   height: 60.0,
                 ),
-                Text(
+                const Text(
                   'Enid Tracker',
                   style: TextStyle(
                     fontSize: 45.0,

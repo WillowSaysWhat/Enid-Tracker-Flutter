@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: Colors.lightBlueAccent,
       body: Flexible(
         child: Column(
           children: <Widget>[
@@ -32,13 +32,13 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: 60,
               child: AppBar(
-                backgroundColor: Colors.blueGrey,
+                backgroundColor: Colors.lightBlueAccent,
               ),
             ),
             // Circle icon list view
             Container(
-              color: Colors.grey,
-              height: 120,
+              color: Colors.lightBlueAccent,
+              height: 150,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: _iconData.length,
@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
             //
             // Medicine panels View List
             Expanded(
-              flex: 5,
+              flex: 4,
               child: ListView.builder(
                 itemCount: _panelData.length,
                 itemBuilder: (context, index) {
@@ -66,11 +66,13 @@ class _HomePageState extends State<HomePage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => NewReminderScreen()));
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const NewReminderScreen()));
         },
         backgroundColor: Colors.amberAccent,
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }
