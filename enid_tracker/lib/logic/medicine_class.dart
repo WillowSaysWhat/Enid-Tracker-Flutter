@@ -3,6 +3,7 @@ class Medicines {
   String medicine = 'Placeholder';
 }
 
+// test object
 Medicines one = Medicines();
 Medicines two = Medicines();
 Medicines three = Medicines();

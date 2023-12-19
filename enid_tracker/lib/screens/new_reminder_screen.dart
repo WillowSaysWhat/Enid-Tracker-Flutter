@@ -36,7 +36,11 @@ class _NewReminderScreenState extends State<NewReminderScreen> {
                     SizedBox(
                       width: 20,
                     ),
-                    Text("Painkillers"),
+                    Text(
+                      "Pain",
+                      style:
+                          TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
+                    ),
                   ],
                 ),
               ),
@@ -51,7 +55,9 @@ class _NewReminderScreenState extends State<NewReminderScreen> {
                     SizedBox(
                       width: 20,
                     ),
-                    Text("Painkillers"),
+                    Text("Emotion",
+                        style: TextStyle(
+                            fontSize: 50, fontWeight: FontWeight.bold)),
                   ],
                 ),
               ),
@@ -66,7 +72,9 @@ class _NewReminderScreenState extends State<NewReminderScreen> {
                     SizedBox(
                       width: 20,
                     ),
-                    Text("Painkillers"),
+                    Text("Heart",
+                        style: TextStyle(
+                            fontSize: 50, fontWeight: FontWeight.bold)),
                   ],
                 ),
               ),
@@ -81,7 +89,9 @@ class _NewReminderScreenState extends State<NewReminderScreen> {
                     SizedBox(
                       width: 20,
                     ),
-                    Text("Painkillers"),
+                    Text("Skin",
+                        style: TextStyle(
+                            fontSize: 50, fontWeight: FontWeight.bold)),
                   ],
                 ),
               ),
