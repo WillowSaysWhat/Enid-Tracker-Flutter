@@ -28,7 +28,8 @@ _Enid Tracker is currently under construction and will be revealed in it's first
 
 # Software Elements
 
-![image](https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/294a7625-fc3d-49b9-a37d-b63a2f68fbfc)
+![image](https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/f7ec722b-3418-428f-b868-e69dba35a6f0)
+
 
 ## Understanding the User Interface
 The image above is the current famework for the home screen in its the current stage of production. It can be broken down into 2 sections. the circlular icon bar will hold filtering option in the first iteration, but can be changed to hold settings icons and/or other user options. The larger cards display the users medicine information and will have an onPressed action that will allow the user to make changes to the medicine information.
