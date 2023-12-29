@@ -54,6 +54,8 @@ class _HomePageState extends State<HomePage> {
               child: ListView.builder(
                 itemCount: _panelData.length,
                 itemBuilder: (context, index) {
+                  // Irfan: this is the constructor and it takes medicine, strength, time of day,
+                  // and quantity as arguments (see medicine_panel.dart: line 4 - 7 & 11 - 14)
                   return MedicinePanel(
                     title: _panelData[index].medicine,
                     strength: _panelData[index].strength,
