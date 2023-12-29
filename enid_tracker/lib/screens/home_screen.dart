@@ -56,6 +56,9 @@ class _HomePageState extends State<HomePage> {
                 itemBuilder: (context, index) {
                   return MedicinePanel(
                     title: _panelData[index].medicine,
+                    strength: _panelData[index].strength,
+                    timeOfDay: _panelData[index].timeOfDay,
+                    quantity: _panelData[index].quantity,
                   );
                 },
               ),

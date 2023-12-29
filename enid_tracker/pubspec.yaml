@@ -13,6 +13,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  numberpicker: ^2.1.2
   settings_ui: ^2.0.2 
 
   

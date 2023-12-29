@@ -2,10 +2,16 @@ import 'package:flutter/material.dart';
 
 class MedicinePanel extends StatelessWidget {
   final String title;
+  final String strength;
+  final String timeOfDay;
+  final int quantity;
 
   const MedicinePanel({
     super.key,
     required this.title,
+    required this.strength,
+    required this.timeOfDay,
+    required this.quantity,
   });
 
   @override
@@ -44,9 +50,11 @@ class MedicinePanel extends StatelessWidget {
                     style: const TextStyle(fontSize: 40),
                   ),
                 ),
-                const Padding(
+                Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text('100mg'),
+                  child: Text(
+                    strength,
+                  ),
                 ),
               ],
             ),
@@ -55,7 +63,7 @@ class MedicinePanel extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 30),
                   child: Text(
-                    'Morning',
+                    timeOfDay,
                     style: const TextStyle(fontSize: 20),
                   ),
                 ),
@@ -67,7 +75,7 @@ class MedicinePanel extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 20, top: 40),
                   child: Text(
-                    '20',
+                    quantity.toString(),
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
                   ),
                 ),
@@ -75,7 +83,7 @@ class MedicinePanel extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 30.0),
                   child: ElevatedButton(
                     onPressed: () {},
-                    child: const Text('Taken'),
+                    child: Text('Taken'),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.limeAccent,
                       shape: RoundedRectangleBorder(
