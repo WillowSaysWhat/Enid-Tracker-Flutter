@@ -1,18 +1,43 @@
+import 'package:enid_tracker/logic/medicine_class.dart';
 import 'package:flutter/material.dart';
 
-class PillIcon extends StatelessWidget {
-  const PillIcon({super.key, required this.pillImages});
+class PillIcon extends StatefulWidget {
+  const PillIcon({super.key, required this.pill});
 
-  final String pillImages;
+  final String pill;
 
   @override
+  State<PillIcon> createState() => _PillIconState();
+}
+
+class _PillIconState extends State<PillIcon> {
+  @override
   Widget build(BuildContext context) {
-    return Container(
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        elevation: 0,
+        shadowColor: null,
+        backgroundColor: Colors.lightBlueAccent,
+        foregroundColor: Colors.lightBlueAccent,
+      ),
+      onPressed: () {
+        setState(() {
+          pillPortrait = setPillPortrait(widget.pill);
+        });
+      },
       child: Image.asset(
-        pillImages,
-        width: 15,
-        height: 20,
+        widget.pill,
       ),
     );
+  }
+
+  String setPillPortrait(String thisPill) {
+    String portrait = " ";
+    int length = pillImages.length;
+
+    for (var i = 0; i < length; i++) {
+      if (thisPill == pillImages[i][0]) portrait = pillImages[i][1];
+    }
+    return portrait;
   }
 }

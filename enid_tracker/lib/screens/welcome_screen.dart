@@ -22,7 +22,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             Row(
               children: <Widget>[
                 Image.asset(
-                  'assets/logo.png',
+                  'assets/capsule-pink-vertical.png',
                   height: 60.0,
                 ),
                 const Text(

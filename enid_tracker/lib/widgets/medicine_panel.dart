@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
-class MedicinePanel extends StatelessWidget {
+class MedicinePanel extends StatefulWidget {
   final String title;
   final String strength;
   final String
       timeOfDay; // these are the attributes from home_screen.dart: line 57
   final int quantity;
+  final String imageLocation;
 
   const MedicinePanel({
     super.key,
@@ -13,8 +14,14 @@ class MedicinePanel extends StatelessWidget {
     required this.strength, // required to make this widget work corrently.
     required this.timeOfDay,
     required this.quantity,
+    required this.imageLocation,
   });
 
+  @override
+  State<MedicinePanel> createState() => _MedicinePanelState();
+}
+
+class _MedicinePanelState extends State<MedicinePanel> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -47,14 +54,14 @@ class MedicinePanel extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 20, top: 10),
                   child: Text(
-                    title, // here is one of the required attributes
+                    widget.title, // here is one of the required attributes
                     style: const TextStyle(fontSize: 40),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    strength, // here is another atribute
+                    widget.strength, // here is another atribute
                   ),
                 ),
               ],
@@ -64,7 +71,7 @@ class MedicinePanel extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 30),
                   child: Text(
-                    timeOfDay, // and another
+                    widget.timeOfDay, // and another
                     style: const TextStyle(fontSize: 20),
                   ),
                 ),
@@ -76,7 +83,7 @@ class MedicinePanel extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 20, top: 40),
                   child: Text(
-                    quantity
+                    widget.quantity
                         .toString(), // this one is an int, so it is converted to a string.
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
                   ),
@@ -97,8 +104,9 @@ class MedicinePanel extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(top: 8.0),
                   child: Image.asset(
-                    'assets/logo.png', // this is a placeholder image this will be soon changed to the class attribute
-                    height: 80,
+                    widget
+                        .imageLocation, // this is a placeholder image this will be soon changed to the class attribute
+                    height: 60,
                   ),
                 )
               ],

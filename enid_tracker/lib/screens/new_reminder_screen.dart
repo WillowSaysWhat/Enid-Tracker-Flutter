@@ -1,4 +1,3 @@
-import 'package:enid_tracker/widgets/pill_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:numberpicker/numberpicker.dart';
 import 'package:enid_tracker/logic/medicine_class.dart';
@@ -13,12 +12,9 @@ class NewReminderScreen extends StatefulWidget {
 class _NewReminderScreenState extends State<NewReminderScreen> {
   int currentValue = 20;
 
-  List<String> pillImages = [
-    one.imageLocation,
-    two.imageLocation,
-  ];
   @override
   Widget build(BuildContext context) {
+    String pill = pillPortrait;
     return Scaffold(
       backgroundColor: Colors.lightBlueAccent,
       appBar: AppBar(
@@ -31,11 +27,9 @@ class _NewReminderScreenState extends State<NewReminderScreen> {
               children: [
                 Row(
                   children: [
-                    Container(
-                      child: Image.asset(
-                        'assets/logo.png',
-                        width: 200,
-                      ),
+                    Image.asset(
+                      pill,
+                      width: 200,
                     ),
                     // Pill Details in Text
                     Column(
@@ -94,6 +88,9 @@ class _NewReminderScreenState extends State<NewReminderScreen> {
                       onChanged: (v) {
                         setState(
                           () {
+                            // I am trying to get the picture to change!
+                            // watching Angela's Todi tutorial to see if it
+                            // sheds light.
                             currentValue = v;
                           },
                         );
@@ -102,7 +99,7 @@ class _NewReminderScreenState extends State<NewReminderScreen> {
                   ],
                 ),
                 SizedBox(
-                  height: 40,
+                  height: 10,
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
@@ -111,36 +108,35 @@ class _NewReminderScreenState extends State<NewReminderScreen> {
                     style: const TextStyle(fontSize: 20),
                   ),
                 ),
-                Expanded(
-                  flex: 1,
-                  child: ListView(
+                SizedBox(
+                  height: 100,
+                  child: Expanded(
+                      child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    children: [
-                      Container(
-                        child: Image.asset(
-                          pillImages[0],
-                          height: 30,
+                    itemCount: pillImages.length,
+                    itemBuilder: (context, index) {
+                      return ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          elevation: 0,
+                          padding: const EdgeInsets.all(1),
+                          shadowColor: null,
+                          backgroundColor: Colors.lightBlueAccent,
+                          foregroundColor: Colors.lightBlueAccent,
                         ),
-                      )
-                    ],
-                  ),
+                        onPressed: () {
+                          print("this works");
+                          setState(() {
+                            pill = pillImages[0][1];
+                          });
+                        },
+                        child: Image.asset(
+                          pillImages[index][0],
+                        ),
+                      );
+                    },
+                  )),
                 ),
-                Container(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Colour",
-                    style: const TextStyle(fontSize: 20),
-                  ),
-                ),
-                Row(
-                  children: [
-                    Container(
-                      height: 115,
-                      child: Image.asset(pillImages[0]),
-                    )
-                  ],
-                ),
-                Container(
+                SizedBox(
                   width: 300,
                   height: 50,
                   child: ElevatedButton(
@@ -163,5 +159,15 @@ class _NewReminderScreenState extends State<NewReminderScreen> {
         ],
       ),
     );
+  }
+
+  String setPillPortrait(String thisPill) {
+    String portrait = " ";
+    int length = pillImages.length;
+
+    for (var i = 0; i < length; i++) {
+      if (thisPill == pillImages[i][0]) portrait = pillImages[i][1];
+    }
+    return portrait;
   }
 }

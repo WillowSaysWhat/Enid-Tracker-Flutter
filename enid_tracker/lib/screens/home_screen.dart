@@ -61,6 +61,7 @@ class _HomePageState extends State<HomePage> {
                     strength: _panelData[index].strength,
                     timeOfDay: _panelData[index].timeOfDay,
                     quantity: _panelData[index].quantity,
+                    imageLocation: _panelData[index].imageLocation,
                   );
                 },
               ),
