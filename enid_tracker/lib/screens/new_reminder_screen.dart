@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:numberpicker/numberpicker.dart';
 import 'package:enid_tracker/logic/medicine_class.dart';
+import 'package:provider/provider.dart';
 
 class NewReminderScreen extends StatefulWidget {
   const NewReminderScreen({super.key});
@@ -14,7 +15,8 @@ class _NewReminderScreenState extends State<NewReminderScreen> {
 
   @override
   Widget build(BuildContext context) {
-    String pill = pillPortrait;
+    Medicine newMedicine = Medicine();
+    final String pill = context.watch<NewMedicine>().pillPortrait;
     return Scaffold(
       backgroundColor: Colors.lightBlueAccent,
       appBar: AppBar(
@@ -124,10 +126,9 @@ class _NewReminderScreenState extends State<NewReminderScreen> {
                           foregroundColor: Colors.lightBlueAccent,
                         ),
                         onPressed: () {
-                          print("this works");
-                          setState(() {
-                            pill = pillImages[0][1];
-                          });
+                          context
+                              .read<NewMedicine>()
+                              .setPillPortrait(pillImages[index][0]);
                         },
                         child: Image.asset(
                           pillImages[index][0],
@@ -159,15 +160,5 @@ class _NewReminderScreenState extends State<NewReminderScreen> {
         ],
       ),
     );
-  }
-
-  String setPillPortrait(String thisPill) {
-    String portrait = " ";
-    int length = pillImages.length;
-
-    for (var i = 0; i < length; i++) {
-      if (thisPill == pillImages[i][0]) portrait = pillImages[i][1];
-    }
-    return portrait;
   }
 }

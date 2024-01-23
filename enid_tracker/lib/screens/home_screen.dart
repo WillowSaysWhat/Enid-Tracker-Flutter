@@ -3,6 +3,7 @@ import 'package:enid_tracker/widgets/icon_circle.dart';
 import 'package:enid_tracker/widgets/medicine_panel.dart';
 import 'package:enid_tracker/logic/medicine_class.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -12,7 +13,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<Medicines> _panelData = [one, two, three, four];
   final List _iconData = [
     'icon1',
     'icon2',
@@ -23,6 +23,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final List<Medicine> panelData = context.watch<MedicineList>().panelData;
     return Scaffold(
       backgroundColor: Colors.lightBlueAccent,
       body: Flexible(
@@ -52,16 +53,16 @@ class _HomePageState extends State<HomePage> {
             Expanded(
               flex: 4,
               child: ListView.builder(
-                itemCount: _panelData.length,
+                itemCount: panelData.length,
                 itemBuilder: (context, index) {
                   // Irfan: this is the constructor and it takes medicine, strength, time of day,
                   // and quantity as arguments (see medicine_panel.dart: line 4 - 7 & 11 - 14)
                   return MedicinePanel(
-                    title: _panelData[index].medicine,
-                    strength: _panelData[index].strength,
-                    timeOfDay: _panelData[index].timeOfDay,
-                    quantity: _panelData[index].quantity,
-                    imageLocation: _panelData[index].imageLocation,
+                    title: panelData[index].medicine,
+                    strength: panelData[index].strength,
+                    timeOfDay: panelData[index].timeOfDay,
+                    quantity: panelData[index].quantity,
+                    imageLocation: panelData[index].imageLocation,
                   );
                 },
               ),

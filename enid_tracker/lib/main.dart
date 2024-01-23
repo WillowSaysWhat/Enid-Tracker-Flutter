@@ -1,7 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:enid_tracker/screens/welcome_screen.dart';
+import 'package:provider/provider.dart';
+import 'package:enid_tracker/logic/medicine_class.dart';
 
-void main() => runApp(const Enid_tracker());
+void main() => runApp(
+      MultiProvider(
+        providers: [
+          ChangeNotifierProvider(
+            create: (_) => MedicineList(),
+          ),
+          ChangeNotifierProvider(
+            create: (_) => NewMedicine(),
+          ),
+        ],
+        child: const Enid_tracker(),
+      ),
+    );
 
 // ignore: camel_case_types
 class Enid_tracker extends StatefulWidget {
