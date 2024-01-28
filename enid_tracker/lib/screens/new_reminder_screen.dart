@@ -1,160 +1,316 @@
+import 'package:enid_tracker/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:numberpicker/numberpicker.dart';
 import 'package:enid_tracker/logic/medicine_class.dart';
 import 'package:provider/provider.dart';
 
-class NewReminderScreen extends StatefulWidget {
-  const NewReminderScreen({super.key});
+class NewMedicineScreen extends StatefulWidget {
+  const NewMedicineScreen({super.key});
 
   @override
-  State<NewReminderScreen> createState() => _NewReminderScreenState();
+  State<NewMedicineScreen> createState() => _NewMedicineScreenState();
 }
 
-class _NewReminderScreenState extends State<NewReminderScreen> {
+class _NewMedicineScreenState extends State<NewMedicineScreen> {
   int currentValue = 20;
 
   @override
   Widget build(BuildContext context) {
     Medicine newMedicine = Medicine();
-    final String pill = context.watch<NewMedicine>().pillPortrait;
+
+    final String pillPortrait = context.watch<NewMedicine>().pillPortrait;
+    final String imageLocation = context.watch<NewMedicine>().imageLocation;
+    final String medicine = context.watch<NewMedicine>().medicine;
+    final String strength = context.watch<NewMedicine>().strength;
+    final String timeOfDay = context.watch<NewMedicine>().timeOfDay;
+
+    TextEditingController tController = TextEditingController();
     return Scaffold(
-      backgroundColor: Colors.lightBlueAccent,
+      backgroundColor: const Color.fromARGB(255, 178, 219, 240),
       appBar: AppBar(
-        backgroundColor: Colors.lightBlueAccent,
+        backgroundColor: const Color.fromARGB(255, 178, 219, 240),
       ),
       body: Column(
         children: [
+          const SizedBox(
+            height: 5,
+          ),
           Flexible(
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    Image.asset(
-                      pill,
-                      width: 200,
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                children: [
+                  Container(
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: <Color>[
+                          Color.fromARGB(255, 24, 98, 226),
+                          Color(0xFF063970),
+                        ],
+                      ),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(15),
+                      ),
                     ),
-                    // Pill Details in Text
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    height: 250,
+                    child: Row(
                       children: [
-                        Text("Pill Name"),
-                        Text(
-                          "PlaceHolder",
-                          style: const TextStyle(fontSize: 20),
+                        Image.asset(
+                          pillPortrait,
+                          width: 150,
+                          height: 300,
+                        ),
+                        const SizedBox(
+                          width: 15,
+                        ),
+                        // Pill Details in Text
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const SizedBox(
+                              height: 15,
+                            ),
+                            const Text(
+                              "Name",
+                              style: TextStyle(color: Colors.white70),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                showModalBottomSheet(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return SizedBox(
+                                      height: 400,
+                                      width: double.infinity,
+                                      child: Column(
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: TextField(
+                                              controller: tController,
+                                            ),
+                                          ),
+                                          ElevatedButton(
+                                              onPressed: () {
+                                                if (tController
+                                                    .text.isNotEmpty) {
+                                                  context
+                                                      .read<NewMedicine>()
+                                                      .setMedicine(
+                                                          tController.text);
+
+                                                  Navigator.pop(context);
+                                                }
+                                              },
+                                              child: const Text("OK"))
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                );
+                              },
+                              child: Text(
+                                medicine,
+                                style: const TextStyle(
+                                    fontSize: 30, color: Colors.white),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            const Text(
+                              "Strength",
+                              style: TextStyle(color: Colors.white70),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                showModalBottomSheet(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return SizedBox(
+                                      height: 400,
+                                      width: double.infinity,
+                                      child: Column(
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: TextField(
+                                              controller: tController,
+                                            ),
+                                          ),
+                                          ElevatedButton(
+                                              onPressed: () {
+                                                if (tController
+                                                    .text.isNotEmpty) {
+                                                  context
+                                                      .read<NewMedicine>()
+                                                      .setStrength(
+                                                          tController.text);
+
+                                                  Navigator.pop(context);
+                                                }
+                                              },
+                                              child: const Text("OK"))
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                );
+                              },
+                              child: Text(
+                                strength,
+                                style: const TextStyle(
+                                    fontSize: 30, color: Colors.white),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            const Text(
+                              "Time of Day",
+                              style: TextStyle(color: Colors.white70),
+                            ),
+                            const Text(
+                              "Morning",
+                              style:
+                                  TextStyle(fontSize: 30, color: Colors.white),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: <Color>[
+                          Color.fromARGB(255, 24, 98, 226),
+                          Color(0xFF063970),
+                        ],
+                      ),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(15),
+                      ),
+                    ),
+                    child: Column(
+                      children: [
+                        Container(
+                          alignment: Alignment.centerLeft,
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 15, top: 5),
+                            child: const Text(
+                              "Quantity",
+                              style: TextStyle(
+                                  fontSize: 20, color: Colors.white70),
+                            ),
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            NumberPicker(
+                              axis: Axis.horizontal,
+                              itemHeight: 60,
+                              itemWidth: 60,
+                              minValue: 0,
+                              itemCount: 5,
+                              step: 2,
+                              textStyle: TextStyle(color: Colors.white70),
+                              selectedTextStyle: const TextStyle(
+                                  fontSize: 45, color: Colors.white),
+                              haptics: true,
+                              maxValue: 100,
+                              value: currentValue,
+                              onChanged: (v) {
+                                setState(() {
+                                  currentValue = v;
+                                });
+                              },
+                            ),
+                          ],
                         ),
                         SizedBox(
                           height: 10,
-                        ),
-                        Text("Pill Strength"),
-                        Text(
-                          "100mg",
-                          style: const TextStyle(fontSize: 20),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text("Next Dose"),
-                        Text(
-                          "Morning",
-                          style: const TextStyle(fontSize: 20),
                         )
                       ],
                     ),
-                  ],
-                ),
-                SizedBox(
-                  height: 50,
-                ),
-                Container(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Quantity",
-                    style: const TextStyle(fontSize: 20),
                   ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    NumberPicker(
-                      axis: Axis.horizontal,
-                      itemHeight: 60,
-                      itemWidth: 60,
-                      minValue: 0,
-                      itemCount: 5,
-                      step: 2,
-                      selectedTextStyle:
-                          TextStyle(fontSize: 45, color: Colors.blue),
-                      haptics: true,
-                      maxValue: 100,
-                      value: currentValue,
-                      onChanged: (v) {
-                        setState(
-                          () {
-                            // I am trying to get the picture to change!
-                            // watching Angela's Todi tutorial to see if it
-                            // sheds light.
-                            currentValue = v;
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    child: const Text(
+                      "Shape",
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 100,
+                    child: Expanded(
+                        child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: pillImages.length,
+                      itemBuilder: (context, index) {
+                        return ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            elevation: 0,
+                            padding: const EdgeInsets.all(1),
+                            shadowColor: null,
+                            backgroundColor:
+                                const Color.fromARGB(255, 178, 219, 240),
+                            foregroundColor: Colors.lightBlueAccent,
+                          ),
+                          onPressed: () {
+                            context
+                                .read<NewMedicine>()
+                                .setPillPortrait(pillImages[index][0]);
+
+                            context
+                                .read<NewMedicine>()
+                                .setPillImage(pillImages[index][0]);
                           },
+                          child: Image.asset(
+                            pillImages[index][0],
+                          ),
                         );
                       },
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Shape",
-                    style: const TextStyle(fontSize: 20),
+                    )),
                   ),
-                ),
-                SizedBox(
-                  height: 100,
-                  child: Expanded(
-                      child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: pillImages.length,
-                    itemBuilder: (context, index) {
-                      return ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          elevation: 0,
-                          padding: const EdgeInsets.all(1),
-                          shadowColor: null,
-                          backgroundColor: Colors.lightBlueAccent,
-                          foregroundColor: Colors.lightBlueAccent,
+                  SizedBox(
+                    width: 300,
+                    height: 50,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.limeAccent,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
                         ),
-                        onPressed: () {
-                          context
-                              .read<NewMedicine>()
-                              .setPillPortrait(pillImages[index][0]);
-                        },
-                        child: Image.asset(
-                          pillImages[index][0],
-                        ),
-                      );
-                    },
-                  )),
-                ),
-                SizedBox(
-                  width: 300,
-                  height: 50,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.limeAccent,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
                       ),
+                      onPressed: () {
+                        newMedicine.medicine = medicine;
+                        newMedicine.strength = strength;
+                        newMedicine.quantity = currentValue;
+                        newMedicine.timeOfDay = timeOfDay;
+                        newMedicine.imageLocation = imageLocation;
+
+                        context.read<MedicineList>().panelData.add(newMedicine);
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const HomePage()));
+                      },
+                      child: const Text("Continue"),
                     ),
-                    onPressed: () {},
-                    child: Text("Continue"),
                   ),
-                ),
-                SizedBox(
-                  height: 20,
-                )
-              ],
+                  const SizedBox(
+                    height: 20,
+                  )
+                ],
+              ),
             ),
           ),
         ],

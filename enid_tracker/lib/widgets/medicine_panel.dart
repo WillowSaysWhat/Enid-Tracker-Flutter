@@ -30,21 +30,13 @@ class _MedicinePanelState extends State<MedicinePanel> {
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: <Color>[
-              Colors.lightBlueAccent,
-              Colors.blueAccent,
+              Color.fromARGB(255, 24, 98, 226),
+              Color(0xFF063970),
             ],
           ),
           borderRadius: BorderRadius.all(
             Radius.circular(15),
           ),
-          boxShadow: [
-            BoxShadow(
-                color: Colors.black,
-                spreadRadius: 2,
-                blurRadius: 15,
-                offset: Offset(2, 8),
-                blurStyle: BlurStyle.normal),
-          ],
         ),
         height: 200,
         child: Column(
@@ -55,13 +47,15 @@ class _MedicinePanelState extends State<MedicinePanel> {
                   padding: const EdgeInsets.only(left: 20, top: 10),
                   child: Text(
                     widget.title, // here is one of the required attributes
-                    style: const TextStyle(fontSize: 40),
+                    style: const TextStyle(fontSize: 40, color: Colors.white),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(1.0),
                   child: Text(
-                    widget.strength, // here is another atribute
+                    widget.strength,
+                    style: const TextStyle(
+                        color: Colors.white54), // here is another atribute
                   ),
                 ),
               ],
@@ -72,7 +66,7 @@ class _MedicinePanelState extends State<MedicinePanel> {
                   padding: const EdgeInsets.only(left: 30),
                   child: Text(
                     widget.timeOfDay, // and another
-                    style: const TextStyle(fontSize: 20),
+                    style: const TextStyle(fontSize: 25, color: Colors.white54),
                   ),
                 ),
               ],
@@ -81,28 +75,34 @@ class _MedicinePanelState extends State<MedicinePanel> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 20, top: 40),
+                  padding: const EdgeInsets.only(left: 20, top: 30),
                   child: Text(
                     widget.quantity
                         .toString(), // this one is an int, so it is converted to a string.
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
+                    style: const TextStyle(
+                        fontWeight: FontWeight.normal,
+                        fontSize: 40,
+                        color: Colors.white),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 30.0),
                   child: ElevatedButton(
                     onPressed: () {},
-                    child: Text('Taken'),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.limeAccent,
+                      backgroundColor: Colors.white70,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15),
                       ),
                     ),
+                    child: const Text(
+                      'Taken',
+                      style: TextStyle(color: Colors.black),
+                    ),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 8.0),
+                  padding: const EdgeInsets.only(top: 30),
                   child: Image.asset(
                     widget
                         .imageLocation, // this is a placeholder image this will be soon changed to the class attribute

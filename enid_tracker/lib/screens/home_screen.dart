@@ -1,5 +1,5 @@
 import 'package:enid_tracker/screens/new_reminder_screen.dart';
-import 'package:enid_tracker/widgets/icon_circle.dart';
+
 import 'package:enid_tracker/widgets/medicine_panel.dart';
 import 'package:enid_tracker/logic/medicine_class.dart';
 import 'package:flutter/material.dart';
@@ -13,19 +13,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final List _iconData = [
-    'icon1',
-    'icon2',
-    'icon3',
-    'icon4',
-    'icon5',
-  ];
-
   @override
   Widget build(BuildContext context) {
     final List<Medicine> panelData = context.watch<MedicineList>().panelData;
+
     return Scaffold(
-      backgroundColor: Colors.lightBlueAccent,
+      backgroundColor: const Color.fromARGB(255, 178, 219, 240),
       body: Flexible(
         child: Column(
           children: <Widget>[
@@ -33,19 +26,93 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: 60,
               child: AppBar(
-                backgroundColor: Colors.lightBlueAccent,
+                backgroundColor: const Color.fromARGB(255, 178, 219, 240),
               ),
             ),
             // Circle icon list view
             Container(
-              color: Colors.lightBlueAccent,
-              height: 150,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: _iconData.length,
-                itemBuilder: (context, index) {
-                  return IconCircle(child: _iconData[index]);
-                },
+              color: const Color.fromARGB(255, 178, 219, 240),
+              height: 120,
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Container(
+                    height: 110,
+                    width: 110,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      gradient: LinearGradient(
+                        colors: <Color>[
+                          Color.fromARGB(255, 24, 98, 226),
+                          Color(0xFF063970),
+                        ],
+                      ),
+                    ),
+                    child: IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const NewMedicineScreen()));
+                      },
+                      icon: const Center(
+                        child: Icon(
+                          Icons.add,
+                          color: Colors.white,
+                          size: 50,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    height: 110,
+                    width: 110,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      gradient: LinearGradient(
+                        colors: <Color>[
+                          Color.fromARGB(255, 24, 98, 226),
+                          Color(0xFF063970),
+                        ],
+                      ),
+                    ),
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: const Center(
+                        child: Icon(
+                          Icons.access_alarm,
+                          color: Colors.white,
+                          size: 50,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    height: 110,
+                    width: 110,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      gradient: LinearGradient(
+                        colors: <Color>[
+                          Color.fromARGB(255, 24, 98, 226),
+                          Color(0xFF063970),
+                        ],
+                      ),
+                    ),
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: const Center(
+                        child: Icon(
+                          Icons.settings,
+                          color: Colors.white,
+                          size: 50,
+                        ),
+                      ),
+                    ),
+                  )
+                ],
               ),
             ),
             //
@@ -69,17 +136,6 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => const NewReminderScreen()));
-        },
-        backgroundColor: Colors.amberAccent,
-        child: const Icon(Icons.add),
       ),
     );
   }
