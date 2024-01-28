@@ -39,6 +39,11 @@ class NewMedicine extends ChangeNotifier {
     quantity = thisQuantity;
     notifyListeners();
   }
+
+  void setTimeOfDay(String thisTime) {
+    timeOfDay = thisTime;
+    notifyListeners();
+  }
 }
 
 class Medicine {
@@ -58,7 +63,16 @@ class MedicineList extends ChangeNotifier {
   List<Medicine> get panelData => _panelData;
 
   void insertMedicine(Medicine medicine) {
+    if (_panelData[0].medicine == "Placeholder") {
+      _panelData.removeAt(0);
+    }
     _panelData.add(medicine);
+    notifyListeners();
+  }
+
+  void minusQuantity(int index) {
+    -panelData[index].quantity--;
+    notifyListeners();
   }
 }
 

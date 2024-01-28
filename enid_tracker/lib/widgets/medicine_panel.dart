@@ -1,4 +1,6 @@
+import 'package:enid_tracker/logic/medicine_class.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class MedicinePanel extends StatefulWidget {
   final String title;
@@ -7,15 +9,16 @@ class MedicinePanel extends StatefulWidget {
       timeOfDay; // these are the attributes from home_screen.dart: line 57
   final int quantity;
   final String imageLocation;
+  final int index;
 
-  const MedicinePanel({
-    super.key,
-    required this.title,
-    required this.strength, // required to make this widget work corrently.
-    required this.timeOfDay,
-    required this.quantity,
-    required this.imageLocation,
-  });
+  const MedicinePanel(
+      {super.key,
+      required this.title,
+      required this.strength, // required to make this widget work corrently.
+      required this.timeOfDay,
+      required this.quantity,
+      required this.imageLocation,
+      required this.index});
 
   @override
   State<MedicinePanel> createState() => _MedicinePanelState();
@@ -88,9 +91,11 @@ class _MedicinePanelState extends State<MedicinePanel> {
                 Padding(
                   padding: const EdgeInsets.only(top: 30.0),
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      context.read<MedicineList>().minusQuantity(widget.index);
+                    },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white70,
+                      backgroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15),
                       ),

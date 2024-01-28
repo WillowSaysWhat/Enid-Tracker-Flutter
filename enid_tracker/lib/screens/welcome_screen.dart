@@ -1,5 +1,4 @@
 import 'package:enid_tracker/screens/home_screen.dart';
-import 'package:enid_tracker/screens/new_reminder_screen.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -20,8 +19,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Center(
-              child: const Text(
+            const Center(
+              child: Text(
                 'Enid Tracker',
                 style: TextStyle(
                   fontSize: 45.0,

@@ -22,7 +22,7 @@ class _NewMedicineScreenState extends State<NewMedicineScreen> {
     final String imageLocation = context.watch<NewMedicine>().imageLocation;
     final String medicine = context.watch<NewMedicine>().medicine;
     final String strength = context.watch<NewMedicine>().strength;
-    final String timeOfDay = context.watch<NewMedicine>().timeOfDay;
+    final String ThetimeOfDay = context.watch<NewMedicine>().timeOfDay;
 
     TextEditingController tController = TextEditingController();
     return Scaffold(
@@ -170,10 +170,95 @@ class _NewMedicineScreenState extends State<NewMedicineScreen> {
                               "Time of Day",
                               style: TextStyle(color: Colors.white70),
                             ),
-                            const Text(
-                              "Morning",
+                            Text(
+                              ThetimeOfDay,
                               style:
                                   TextStyle(fontSize: 30, color: Colors.white),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: <Color>[
+                          Color.fromARGB(255, 24, 98, 226),
+                          Color(0xFF063970),
+                        ],
+                      ),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(15),
+                      ),
+                    ),
+                    height: 120,
+                    child: Column(
+                      children: [
+                        Container(
+                          alignment: Alignment.topLeft,
+                          child: const Padding(
+                            padding: EdgeInsets.only(left: 15, top: 15),
+                            child: Text(
+                              "Time of Day",
+                              style: TextStyle(
+                                  fontSize: 22, color: Colors.white70),
+                            ),
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                context
+                                    .read<NewMedicine>()
+                                    .setTimeOfDay("Morning");
+                              },
+                              child: const Icon(
+                                Icons.bakery_dining,
+                                color: Colors.white,
+                                size: 60,
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                context
+                                    .read<NewMedicine>()
+                                    .setTimeOfDay("Lunch");
+                              },
+                              child: const Icon(
+                                Icons.light_mode,
+                                color: Colors.white,
+                                size: 50,
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                context
+                                    .read<NewMedicine>()
+                                    .setTimeOfDay("Dinner");
+                              },
+                              child: const Icon(
+                                Icons.nightlight,
+                                color: Colors.white,
+                                size: 50,
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                context
+                                    .read<NewMedicine>()
+                                    .setTimeOfDay("Bedtime");
+                              },
+                              child: const Icon(
+                                Icons.bed,
+                                color: Colors.white,
+                                size: 50,
+                              ),
                             )
                           ],
                         ),
@@ -199,9 +284,9 @@ class _NewMedicineScreenState extends State<NewMedicineScreen> {
                       children: [
                         Container(
                           alignment: Alignment.centerLeft,
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 15, top: 5),
-                            child: const Text(
+                          child: const Padding(
+                            padding: EdgeInsets.only(left: 15, top: 5),
+                            child: Text(
                               "Quantity",
                               style: TextStyle(
                                   fontSize: 20, color: Colors.white70),
@@ -218,7 +303,7 @@ class _NewMedicineScreenState extends State<NewMedicineScreen> {
                               minValue: 0,
                               itemCount: 5,
                               step: 2,
-                              textStyle: TextStyle(color: Colors.white70),
+                              textStyle: const TextStyle(color: Colors.white70),
                               selectedTextStyle: const TextStyle(
                                   fontSize: 45, color: Colors.white),
                               haptics: true,
@@ -232,7 +317,7 @@ class _NewMedicineScreenState extends State<NewMedicineScreen> {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         )
                       ],
@@ -242,50 +327,65 @@ class _NewMedicineScreenState extends State<NewMedicineScreen> {
                     height: 10,
                   ),
                   Container(
-                    alignment: Alignment.centerLeft,
-                    child: const Text(
-                      "Shape",
-                      style: TextStyle(fontSize: 20),
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: <Color>[
+                          Color.fromARGB(255, 24, 98, 226),
+                          Color(0xFF063970),
+                        ],
+                      ),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(15),
+                      ),
+                    ),
+                    height: 110,
+                    child: Column(
+                      children: [
+                        Container(
+                          alignment: Alignment.topLeft,
+                          child: const Padding(
+                            padding: EdgeInsets.only(left: 15, top: 5),
+                            child: Text(
+                              "Shape",
+                              style: TextStyle(
+                                  fontSize: 22, color: Colors.white70),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: pillImages.length,
+                            itemBuilder: (context, index) {
+                              return GestureDetector(
+                                onTap: () {
+                                  context
+                                      .read<NewMedicine>()
+                                      .setPillPortrait(pillImages[index][0]);
+
+                                  context
+                                      .read<NewMedicine>()
+                                      .setPillImage(pillImages[index][0]);
+                                },
+                                child: Image.asset(
+                                  pillImages[index][0],
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  SizedBox(
-                    height: 100,
-                    child: Expanded(
-                        child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: pillImages.length,
-                      itemBuilder: (context, index) {
-                        return ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            elevation: 0,
-                            padding: const EdgeInsets.all(1),
-                            shadowColor: null,
-                            backgroundColor:
-                                const Color.fromARGB(255, 178, 219, 240),
-                            foregroundColor: Colors.lightBlueAccent,
-                          ),
-                          onPressed: () {
-                            context
-                                .read<NewMedicine>()
-                                .setPillPortrait(pillImages[index][0]);
-
-                            context
-                                .read<NewMedicine>()
-                                .setPillImage(pillImages[index][0]);
-                          },
-                          child: Image.asset(
-                            pillImages[index][0],
-                          ),
-                        );
-                      },
-                    )),
+                  const SizedBox(
+                    height: 10,
                   ),
-                  SizedBox(
-                    width: 300,
-                    height: 50,
+                  Container(
+                    width: 200,
+                    height: 40,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.limeAccent,
+                        backgroundColor: Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15),
                         ),
@@ -294,21 +394,18 @@ class _NewMedicineScreenState extends State<NewMedicineScreen> {
                         newMedicine.medicine = medicine;
                         newMedicine.strength = strength;
                         newMedicine.quantity = currentValue;
-                        newMedicine.timeOfDay = timeOfDay;
+                        newMedicine.timeOfDay = ThetimeOfDay;
                         newMedicine.imageLocation = imageLocation;
 
-                        context.read<MedicineList>().panelData.add(newMedicine);
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const HomePage()));
+                        context
+                            .read<MedicineList>()
+                            .insertMedicine(newMedicine);
+
+                        Navigator.pop(context);
                       },
                       child: const Text("Continue"),
                     ),
                   ),
-                  const SizedBox(
-                    height: 20,
-                  )
                 ],
               ),
             ),
