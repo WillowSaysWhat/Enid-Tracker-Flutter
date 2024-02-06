@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "144452146019",
+    "project_id": "enid-tracker",
+    "storage_bucket": "enid-tracker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:144452146019:android:a186bf5ad1afb43a9f3956",
+        "android_client_info": {
+          "package_name": "com.example.enid_tracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7WDpLeUX3oziMzIjnu6oHBnCjD0_iGaA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

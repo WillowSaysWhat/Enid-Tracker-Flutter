@@ -1,8 +1,10 @@
-import 'package:enid_tracker/screens/home_screen.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:numberpicker/numberpicker.dart';
 import 'package:enid_tracker/logic/medicine_class.dart';
 import 'package:provider/provider.dart';
+import 'package:random_string/random_string.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class NewMedicineScreen extends StatefulWidget {
   const NewMedicineScreen({super.key});
@@ -13,11 +15,8 @@ class NewMedicineScreen extends StatefulWidget {
 
 class _NewMedicineScreenState extends State<NewMedicineScreen> {
   int currentValue = 20;
-
   @override
   Widget build(BuildContext context) {
-    Medicine newMedicine = Medicine();
-
     final String pillPortrait = context.watch<NewMedicine>().pillPortrait;
     final String imageLocation = context.watch<NewMedicine>().imageLocation;
     final String medicine = context.watch<NewMedicine>().medicine;
@@ -172,8 +171,8 @@ class _NewMedicineScreenState extends State<NewMedicineScreen> {
                             ),
                             Text(
                               ThetimeOfDay,
-                              style:
-                                  TextStyle(fontSize: 30, color: Colors.white),
+                              style: const TextStyle(
+                                  fontSize: 30, color: Colors.white),
                             )
                           ],
                         ),
@@ -390,17 +389,32 @@ class _NewMedicineScreenState extends State<NewMedicineScreen> {
                           borderRadius: BorderRadius.circular(15),
                         ),
                       ),
-                      onPressed: () {
-                        newMedicine.medicine = medicine;
-                        newMedicine.strength = strength;
-                        newMedicine.quantity = currentValue;
-                        newMedicine.timeOfDay = ThetimeOfDay;
-                        newMedicine.imageLocation = imageLocation;
+                      onPressed: () async {
+                        String id = randomAlpha(10);
+                        Map<String, dynamic> newMedicineMap = {
+                          "medicine": medicine,
+                          "strength": strength,
+                          "quantity": currentValue,
+                          "timeOfDay": ThetimeOfDay,
+                          "imageLocation": imageLocation,
+                          "Id": id
+                        };
+                        await DatabaseMethods()
+                            .addMedicineDetails(newMedicineMap, id)
+                            .then(
+                          (value) {
+                            Fluttertoast.showToast(
+                                msg: "Medicine added",
+                                toastLength: Toast.LENGTH_SHORT,
+                                gravity: ToastGravity.SNACKBAR,
+                                timeInSecForIosWeb: 1,
+                                backgroundColor: Colors.red,
+                                textColor: Colors.white,
+                                fontSize: 16.0);
+                          },
+                        );
 
-                        context
-                            .read<MedicineList>()
-                            .insertMedicine(newMedicine);
-
+                        // ignore: use_build_context_synchronously
                         Navigator.pop(context);
                       },
                       child: const Text("Continue"),

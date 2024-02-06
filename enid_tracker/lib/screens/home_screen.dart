@@ -1,9 +1,9 @@
-import 'package:enid_tracker/screens/new_reminder_screen.dart';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:enid_tracker/screens/Set_Notification_Screen.dart';
+import 'package:enid_tracker/widgets/home_screen_icon_circles.dart';
 import 'package:enid_tracker/widgets/medicine_panel.dart';
 import 'package:enid_tracker/logic/medicine_class.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -13,10 +13,48 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  Stream? MedicineStream;
+
+  getontheload() async {
+    MedicineStream = await DatabaseMethods().getMedicineDetails();
+
+    setState(
+      () {},
+    );
+  }
+
+  @override
+  void initState() {
+    getontheload();
+    super.initState();
+  }
+
+// this builds the Medicine List,
+  Widget allMedicineDetails() {
+    return StreamBuilder(
+        stream: MedicineStream,
+        builder: (contxt, AsyncSnapshot snapshot) {
+          return snapshot.hasData
+              ? ListView.builder(
+                  itemCount: snapshot.data.docs.length,
+                  itemBuilder: (contxt, index) {
+                    DocumentSnapshot ds = snapshot.data.docs[index];
+                    return MedicinePanel(
+                      title: ds["medicine"],
+                      strength: ds["strength"],
+                      timeOfDay: ds["timeOfDay"],
+                      quantity: ds["quantity"],
+                      imageLocation: ds["imageLocation"],
+                      id: ds["Id"],
+                    );
+                  },
+                )
+              : Container();
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
-    final List<Medicine> panelData = context.watch<MedicineList>().panelData;
-
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 178, 219, 240),
       body: Column(
@@ -32,84 +70,13 @@ class _HomePageState extends State<HomePage> {
           Container(
             color: const Color.fromARGB(255, 178, 219, 240),
             height: 120,
-            child: Row(
+            child: const Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Container(
-                  height: 110,
-                  width: 110,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    gradient: LinearGradient(
-                      colors: <Color>[
-                        Color.fromARGB(255, 24, 98, 226),
-                        Color(0xFF063970),
-                      ],
-                    ),
-                  ),
-                  child: IconButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const NewMedicineScreen()));
-                    },
-                    icon: const Center(
-                      child: Icon(
-                        Icons.add,
-                        color: Colors.white,
-                        size: 50,
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  height: 110,
-                  width: 110,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    gradient: LinearGradient(
-                      colors: <Color>[
-                        Color.fromARGB(255, 24, 98, 226),
-                        Color(0xFF063970),
-                      ],
-                    ),
-                  ),
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: const Center(
-                      child: Icon(
-                        Icons.access_alarm,
-                        color: Colors.white,
-                        size: 50,
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  height: 110,
-                  width: 110,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    gradient: LinearGradient(
-                      colors: <Color>[
-                        Color.fromARGB(255, 24, 98, 226),
-                        Color(0xFF063970),
-                      ],
-                    ),
-                  ),
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: const Center(
-                      child: Icon(
-                        Icons.settings,
-                        color: Colors.white,
-                        size: 50,
-                      ),
-                    ),
-                  ),
-                )
+                PlusIconButton(),
+                AlarmClockIconButton(),
+                SettingsIconButton(),
               ],
             ),
           ),
@@ -117,21 +84,7 @@ class _HomePageState extends State<HomePage> {
           // Medicine panels View List
           Expanded(
             flex: 4,
-            child: ListView.builder(
-              itemCount: panelData.length,
-              itemBuilder: (context, index) {
-                // Irfan: this is the constructor and it takes medicine, strength, time of day,
-                // and quantity as arguments (see medicine_panel.dart: line 4 - 7 & 11 - 14)
-                return MedicinePanel(
-                  title: panelData[index].medicine,
-                  strength: panelData[index].strength,
-                  timeOfDay: panelData[index].timeOfDay,
-                  quantity: panelData[index].quantity,
-                  imageLocation: panelData[index].imageLocation,
-                  index: index,
-                );
-              },
-            ),
+            child: allMedicineDetails(),
           ),
         ],
       ),

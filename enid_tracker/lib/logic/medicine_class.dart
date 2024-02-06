@@ -1,3 +1,6 @@
+import 'dart:core';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class NewMedicine extends ChangeNotifier {
@@ -24,8 +27,8 @@ class NewMedicine extends ChangeNotifier {
   }
 
   void setMedicine(String thisPillName) {
-    thisPillName =
-        thisPillName.trim(); // trims any whitespace at the end of the string.
+    thisPillName = thisPillName.trim();
+    // trims any whitespace at the end of the string.
     medicine = thisPillName;
     notifyListeners();
   }
@@ -55,29 +58,7 @@ class Medicine {
   String imageLocation = 'assets/tablet-blue.png';
 }
 
-class MedicineList extends ChangeNotifier {
-  final List<Medicine> _panelData = [
-    one,
-  ];
-
-  List<Medicine> get panelData => _panelData;
-
-  void insertMedicine(Medicine medicine) {
-    if (_panelData[0].medicine == "Placeholder") {
-      _panelData.removeAt(0);
-    }
-    _panelData.add(medicine);
-    notifyListeners();
-  }
-
-  void minusQuantity(int index) {
-    -panelData[index].quantity--;
-    notifyListeners();
-  }
-}
-
 // test object
-Medicine one = Medicine();
 
 List<List<String>> pillImages = [
   ["assets/capsule-blue.png", "assets/capsule-blue-copy.png"],
@@ -92,3 +73,23 @@ List<List<String>> pillImages = [
   ["assets/tablet-pink.png", "assets/tablet-pink.png"],
   ["assets/tablet-white.png", "assets/tablet-white.png"],
 ];
+
+class DatabaseMethods {
+  Future addMedicineDetails(Map<String, dynamic> newMeds, String id) async {
+    return await FirebaseFirestore.instance
+        .collection("Enid_Tracker")
+        .doc(id)
+        .set(newMeds);
+  }
+
+  Future<Stream<QuerySnapshot>> getMedicineDetails() async {
+    return FirebaseFirestore.instance.collection("Enid_Tracker").snapshots();
+  }
+
+  Future deleteMedicineDetails(String id) async {
+    return await FirebaseFirestore.instance
+        .collection("Enid_Tracker")
+        .doc(id)
+        .delete();
+  }
+}

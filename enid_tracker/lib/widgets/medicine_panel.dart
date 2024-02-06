@@ -1,15 +1,15 @@
 import 'package:enid_tracker/logic/medicine_class.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:enid_tracker/widgets/delete_popup.dart';
 
 class MedicinePanel extends StatefulWidget {
   final String title;
   final String strength;
-  final String
-      timeOfDay; // these are the attributes from home_screen.dart: line 57
+  final String timeOfDay; // these are the attributes from home_screen.dart:
   final int quantity;
   final String imageLocation;
-  final int index;
+  final String id;
 
   const MedicinePanel(
       {super.key,
@@ -18,7 +18,7 @@ class MedicinePanel extends StatefulWidget {
       required this.timeOfDay,
       required this.quantity,
       required this.imageLocation,
-      required this.index});
+      required this.id});
 
   @override
   State<MedicinePanel> createState() => _MedicinePanelState();
@@ -44,21 +44,54 @@ class _MedicinePanelState extends State<MedicinePanel> {
         height: 200,
         child: Column(
           children: [
-            Row(
+            Stack(
               children: [
-                Padding(
+                Container(
+                  alignment: Alignment.centerLeft,
                   padding: const EdgeInsets.only(left: 20, top: 10),
-                  child: Text(
-                    widget.title, // here is one of the required attributes
-                    style: const TextStyle(fontSize: 40, color: Colors.white),
+                  child: Row(
+                    children: [
+                      Text(
+                        widget.title, // here is one of the required attributes
+                        style:
+                            const TextStyle(fontSize: 40, color: Colors.white),
+                      ),
+                      Text(
+                        widget.strength,
+                        style: const TextStyle(
+                            color: Colors.white54), // here is another atribute
+                      ),
+                    ],
+                  ),
+                ),
+                // here are the delete and edit icons
+                Padding(
+                  padding: const EdgeInsets.only(right: 20, top: 15),
+                  child: Container(
+                    alignment: Alignment.topRight,
+                    child: GestureDetector(
+                      child: const Icon(
+                        Icons.edit,
+                        color: Colors.white,
+                      ),
+                      onTap: () {},
+                    ),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(1.0),
-                  child: Text(
-                    widget.strength,
-                    style: const TextStyle(
-                        color: Colors.white54), // here is another atribute
+                  padding: const EdgeInsets.only(right: 50, top: 14),
+                  child: Container(
+                    alignment: Alignment.topRight,
+                    child: GestureDetector(
+                      child: const Icon(
+                        Icons.delete_rounded,
+                        color: Colors.white,
+                      ),
+                      onTap: () async {
+                        await DatabaseMethods()
+                            .deleteMedicineDetails(widget.id);
+                      },
+                    ),
                   ),
                 ),
               ],
@@ -92,7 +125,7 @@ class _MedicinePanelState extends State<MedicinePanel> {
                   padding: const EdgeInsets.only(top: 30.0),
                   child: ElevatedButton(
                     onPressed: () {
-                      context.read<MedicineList>().minusQuantity(widget.index);
+                      // need to change and call database
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
