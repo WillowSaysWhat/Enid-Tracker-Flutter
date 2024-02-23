@@ -1,5 +1,5 @@
+![7](https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/76e8e8f4-26a1-4342-9d13-ccb0d2c08864)
 
-![image](https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/4203defd-96ba-4c41-8e61-babffebc2c95)
 
 # Enid Tracker
 ##### Medicine Consumption Tracker
