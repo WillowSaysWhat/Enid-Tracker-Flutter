@@ -49,7 +49,7 @@ A delete and edit icon also added at this time and while the delete button is wo
 ### Add a New Medicine
 This was the most difficult screen to build. It was designed to build a small profile of the user's medication, which included an image, the name of the medicine, and the time of day that which the medicine would be taken (Morning, Lunch, Dinner). The profile would update as the user made chioces... The only problem was - the team had no understanding of State Management, so a pause was taken and a thorough investigation into Flutter Provider was made. After
 ### Mobile Development Concepts Used
-<img src="https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/b1bb8ecb-01ee-46ee-8f16-cbf02cf70946" alt="Image" width="300" height="200">
+<img src="https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/b1bb8ecb-01ee-46ee-8f16-cbf02cf70946" alt="Image" height="200">
 
 
 
