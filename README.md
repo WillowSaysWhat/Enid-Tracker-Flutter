@@ -39,6 +39,7 @@ The image above is the current famework for the home screen in its the current s
 This is an overview of the main widgets used in Enid. Widget are separated into their own class if they are deemed to be to large or bulky to remain it the screen file. 
 ### Medicine Panel
 ![image](https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/b1249396-aebc-457f-934f-ef8cb2f524f0)
+
 The Medicine panel displays the user's medicine name, strength, image and the amount of medicine left. This data is streamed from a NoSQL database. The widget is then added to a ViewList using the the Build funtionality. This allows users to scrow the Medicine Panels and interact with icons on the panel. 
 
 The panel was originally build using a Container that housed columns and rows. However, this caused interference between icons and labels. Instead, we implemented a Stack which allowed us to build the widget in an Adobe Photoshop-like image where different objects could be layered on top of each other. This prevented out-of-bound incidents.
@@ -48,7 +49,7 @@ A delete and edit icon also added at this time and while the delete button is wo
 ### Add a New Medicine
 This was the most difficult screen to build. It was designed to build a small profile of the user's medication, which included an image, the name of the medicine, and the time of day that which the medicine would be taken (Morning, Lunch, Dinner). The profile would update as the user made chioces... The only problem was - the team had no understanding of State Management, so a pause was taken and a thorough investigation into Flutter Provider was made. After
 ### Mobile Development Concepts Used
-<img src="[image.jpg](https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/b1bb8ecb-01ee-46ee-8f16-cbf02cf70946)" alt="Image" width="300" height="200">
+<img src="https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/b1bb8ecb-01ee-46ee-8f16-cbf02cf70946" alt="Image" width="300" height="200">
 
 
 
