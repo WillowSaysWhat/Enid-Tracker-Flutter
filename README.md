@@ -1,4 +1,5 @@
-![7](https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/76e8e8f4-26a1-4342-9d13-ccb0d2c08864)
+![image](https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/2bed8f16-d36f-4dc4-97ae-51d39c509c2d)
+
 
 
 # Enid Tracker
