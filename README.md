@@ -49,10 +49,7 @@ A delete and edit icon also added at this time and while the delete button is wo
 ### Add a New Medicine
 This was the most difficult screen to build. It was designed to build a small profile of the user's medication, which included an image, the name of the medicine, and the time of day that which the medicine would be taken (Morning, Lunch, Dinner). The profile would update as the user made chioces... The only problem was - the team had no understanding of State Management, so a pause was taken and a thorough investigation into Flutter Provider was made. After
 ### Mobile Development Concepts Used
-<img src="https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/b1bb8ecb-01ee-46ee-8f16-cbf02cf70946" alt="Image" height="200">
-
-
-
+<img src="https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/b1bb8ecb-01ee-46ee-8f16-cbf02cf70946" alt="Image" height="300">
 
 #### State Management
 Flutter state management is a crucial aspect of Enid Tracker and is used in the creation of a new medicine. As the user adjusts the name, strength, amount and time of day - the medicine profile will also change to reflect the user's input. It was also used to request updates from the database to populate the list view builder. 
@@ -62,6 +59,7 @@ This was something unknown to us at first, however, after some research we disco
 Google's Firestore No-SQL database was used to fix the persistence of data from session to session. The database is initialised on start up and the app requests data whenever the user changes the state of the 
 
 ### Software Stack
+Enid tracker was built using Google's programming language Dart, Mobile development environment Flutter, and No-SQL non-relational database Firebase Firestore.
 ### Widget Design
 ### Page Design
 ### Medicine class
