@@ -47,11 +47,15 @@ A delete and edit icon also added at this time and while the delete button is wo
 This was the most difficult screen to build. It was designed to build a small profile of the user's medication, which included an image, the name of the medicine, and the time of day that which the medicine would be taken (Morning, Lunch, Dinner). The profile would update as the user made chioces... The only problem was - the team had no understanding of State Management, so a pause was taken and a thorough investigation into Flutter Provider was made. After
 ### Mobile Development Concepts Used
 
-#### State Management
-Flutter state management is a crucial aspect of Enid Tracker and is used in the creation of a new medicine. As the user adjusts the name, strength, amount and time of day - the medicine profile will also change to reflect the user's input. It is also used
-This was something unknown to us at first, however, after some research we discovered Flutter Provider. 
+![Screenshot_20240319_110338](https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/b1bb8ecb-01ee-46ee-8f16-cbf02cf70946)
 
-#### Persistent User 
+
+#### State Management
+Flutter state management is a crucial aspect of Enid Tracker and is used in the creation of a new medicine. As the user adjusts the name, strength, amount and time of day - the medicine profile will also change to reflect the user's input. It was also used to request updates from the database to populate the list view builder. 
+This was something unknown to us at first, however, after some research we discovered Flutter Provider.  
+
+#### Persistent User Data
+Google's Firestore No-SQL database was used to fix the persistence of data from session to session. The database is initialised on start up and the app requests data whenever the user changes the state of the 
 
 ### Software Stack
 ### Widget Design
