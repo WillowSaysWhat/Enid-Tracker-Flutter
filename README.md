@@ -44,8 +44,15 @@ The panel was originally build using a Container that housed columns and rows. H
 A delete and edit icon also added at this time and while the delete button is working, the edit button is still under construction.
 
 ### Add a New Medicine
-This was the most difficult screen to build. It was designed to build a small profile of the user's medication, which included an image, the name of the medicine, and the time of day that which the medicine would be taken (Morning, Lunch, Dinner). The profile would update as the user made chioces... The only problem was - the trean had no understanding of State Management, so a pause was taken and a thorough investigation into Flutter Provider was made. After
-## Software Documentation
+This was the most difficult screen to build. It was designed to build a small profile of the user's medication, which included an image, the name of the medicine, and the time of day that which the medicine would be taken (Morning, Lunch, Dinner). The profile would update as the user made chioces... The only problem was - the team had no understanding of State Management, so a pause was taken and a thorough investigation into Flutter Provider was made. After
+### Mobile Development Concepts Used
+
+#### State Management
+Flutter state management is a crucial aspect of Enid Tracker and is used in the creation of a new medicine. As the user adjusts the name, strength, amount and time of day - the medicine profile will also change to reflect the user's input. It is also used
+This was something unknown to us at first, however, after some research we discovered Flutter Provider. 
+
+#### Persistent User 
+
 ### Software Stack
 ### Widget Design
 ### Page Design
