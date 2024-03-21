@@ -32,7 +32,7 @@ _Enid Tracker is currently under construction and will be revealed in it's first
 
 # Software Elements
 <div align="center">
-<img src="https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/f7ec722b-3418-428f-b868-e69dba35a6f0" alt="Image" height="220">
+<img src="https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/f7ec722b-3418-428f-b868-e69dba35a6f0" alt="Image" height="320">
 </div>
 
 ## Understanding the User Interface
