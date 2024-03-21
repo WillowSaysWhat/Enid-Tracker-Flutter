@@ -1,6 +1,12 @@
 ![7](https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/479de5a2-732e-4dc0-8c24-e2c7402a7a7a)
 
-
+<style>
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
 
 
 # Enid Tracker
@@ -63,7 +69,7 @@ Enid Tracker was built using Google's programming language Dart, Mobile developm
 ### Widget Design
 The medicine card widget within the list View builder was first created using only rows and columns, howver after a few months of development, the stack feature was discovered and inplemented. this allowed for levels to be used to prevent adjacent text from pushing other elements out-of-bounds. 
 
-<img src="https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/73e30ba2-ecd3-466c-a200-9901fb6db770" alt="Image" height="200" class="center">
+<img src="https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/73e30ba2-ecd3-466c-a200-9901fb6db770" alt="Image" height="200" style="width:50%; >
 
 
 ### Page Design
