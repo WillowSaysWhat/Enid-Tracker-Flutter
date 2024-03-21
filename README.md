@@ -2,7 +2,7 @@
 <img src="https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/479de5a2-732e-4dc0-8c24-e2c7402a7a7a" alt="Image" height="320">
 </div>
 
-
+<div align="center">
 # Enid Tracker
 ##### Medicine Consumption Tracker
 ## Table of Contents 
@@ -15,6 +15,9 @@
 * [SoftwareDocumentation](#software-documentation)
   * [Software Stack](#software-stack)
   * [Widget Design](#widget-design)
+ 
+</div>
+
 ## Description of the Application
 Enid Tracker is a cross-platform mobile aplication that monitors medicine consumption.
 
