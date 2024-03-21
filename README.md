@@ -1,5 +1,6 @@
 <div align="center>
- ![7](https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/479de5a2-732e-4dc0-8c24-e2c7402a7a7a)
+ <img src="https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/479de5a2-732e-4dc0-8c24-e2c7402a7a7a" alt="Image" >
+ 
  </div>
 
 
