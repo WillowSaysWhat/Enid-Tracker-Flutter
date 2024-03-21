@@ -32,7 +32,7 @@ _Enid Tracker is currently under construction and will be revealed in it's first
 
 # Software Elements
 <div align="center">
-<img src="https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/f7ec722b-3418-428f-b868-e69dba35a6f0" alt="Image" height="320">
+<img src="https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/f7ec722b-3418-428f-b868-e69dba35a6f0" alt="Image" height="220">
 </div>
 
 ## Understanding the User Interface
@@ -55,7 +55,7 @@ A delete and edit icon also added at this time and while the delete button is wo
 This was the most difficult screen to build. It was designed to build a small profile of the user's medication, which included an image, the name of the medicine, and the time of day that which the medicine would be taken (Morning, Lunch, Dinner). The profile would update as the user made chioces... The only problem was - the team had no understanding of State Management, so a pause was taken and a thorough investigation into Flutter Provider was made. After
 ### Mobile Development Concepts Used
 <p align="center>
-<img src="https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/b1bb8ecb-01ee-46ee-8f16-cbf02cf70946" alt="Image" height="300"> </p>
+<img src="https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/b1bb8ecb-01ee-46ee-8f16-cbf02cf70946" alt="Image" height="200"> </p>
 
 #### State Management
 Flutter state management is a crucial aspect of Enid Tracker and is used in the creation of a new medicine. As the user adjusts the name, strength, amount and time of day - the medicine profile will also change to reflect the user's input. It was also used to request updates from the database to populate the list view builder. 
