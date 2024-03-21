@@ -1,12 +1,6 @@
 ![7](https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/479de5a2-732e-4dc0-8c24-e2c7402a7a7a)
 
-<style>
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-</style>
+
 
 
 # Enid Tracker
@@ -55,7 +49,8 @@ A delete and edit icon also added at this time and while the delete button is wo
 ### Add a New Medicine
 This was the most difficult screen to build. It was designed to build a small profile of the user's medication, which included an image, the name of the medicine, and the time of day that which the medicine would be taken (Morning, Lunch, Dinner). The profile would update as the user made chioces... The only problem was - the team had no understanding of State Management, so a pause was taken and a thorough investigation into Flutter Provider was made. After
 ### Mobile Development Concepts Used
-<img src="https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/b1bb8ecb-01ee-46ee-8f16-cbf02cf70946" alt="Image" height="300">
+<p align="center>
+<img src="https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/b1bb8ecb-01ee-46ee-8f16-cbf02cf70946" alt="Image" height="300"> </p>
 
 #### State Management
 Flutter state management is a crucial aspect of Enid Tracker and is used in the creation of a new medicine. As the user adjusts the name, strength, amount and time of day - the medicine profile will also change to reflect the user's input. It was also used to request updates from the database to populate the list view builder. 
@@ -69,7 +64,7 @@ Enid Tracker was built using Google's programming language Dart, Mobile developm
 ### Widget Design
 The medicine card widget within the list View builder was first created using only rows and columns, howver after a few months of development, the stack feature was discovered and inplemented. this allowed for levels to be used to prevent adjacent text from pushing other elements out-of-bounds. 
 
-<img src="https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/73e30ba2-ecd3-466c-a200-9901fb6db770" alt="Image" height="200" style="width:50%; >
+<img src="https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/73e30ba2-ecd3-466c-a200-9901fb6db770" alt="Image" height="200">
 
 
 ### Page Design
