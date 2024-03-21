@@ -2,7 +2,6 @@
 <img src="https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/479de5a2-732e-4dc0-8c24-e2c7402a7a7a" alt="Image" height="320">
 </div>
 
-<div align="center">
 # Enid Tracker
 ##### Medicine Consumption Tracker
 ## Table of Contents 
@@ -16,7 +15,7 @@
   * [Software Stack](#software-stack)
   * [Widget Design](#widget-design)
  
-</div>
+
 
 ## Description of the Application
 Enid Tracker is a cross-platform mobile aplication that monitors medicine consumption.
@@ -32,9 +31,9 @@ Enid's user-friendly interface provides a hassle-free experience for users of al
 _Enid Tracker is currently under construction and will be revealed in it's first iteration in March 2024._
 
 # Software Elements
-
-![image](https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/f7ec722b-3418-428f-b868-e69dba35a6f0)
-
+<div align="center">
+<img src="https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/f7ec722b-3418-428f-b868-e69dba35a6f0" alt="Image" height="320">
+</div>
 
 ## Understanding the User Interface
 The image above is the current famework for the home screen in its the current stage of production. It can be broken down into 2 sections. the circlular icon bar will hold filtering option in the first iteration, but can be changed to hold settings icons and/or other user options. The larger cards display the users medicine information and will have an onPressed action that will allow the user to make changes to the medicine information.
