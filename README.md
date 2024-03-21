@@ -59,8 +59,11 @@ This was something unknown to us at first, however, after some research we disco
 Google's Firestore No-SQL database was used to fix the persistence of data from session to session. The database is initialised on start up and the app requests data whenever the user changes the state of the 
 
 ### Software Stack
-Enid tracker was built using Google's programming language Dart, Mobile development environment Flutter, and No-SQL non-relational database Firebase Firestore.
+Enid Tracker was built using Google's programming language Dart, Mobile development environment Flutter, and No-SQL non-relational database Firebase Firestore.
 ### Widget Design
+The medicine card widget within the list View builder was first created using only rows and columns, howver after a few months of development, the stack feature was discovered and inplemented. this allowed for levels to be used to prevent adjacent text from pushing other elements out-of-bounds. 
+![Hellow World](https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/73e30ba2-ecd3-466c-a200-9901fb6db770)
+
 ### Page Design
 ### Medicine class
 ### Adding new pages
