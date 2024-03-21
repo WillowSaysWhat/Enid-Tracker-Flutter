@@ -40,7 +40,10 @@ The image above is the current famework for the home screen in its the current s
 ## Important Widgets
 This is an overview of the main widgets used in Enid. Widget are separated into their own class if they are deemed to be to large or bulky to remain it the screen file. 
 ### Medicine Panel
-![image](https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/b1249396-aebc-457f-934f-ef8cb2f524f0)
+<div align="center">
+<img src="https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/b1249396-aebc-457f-934f-ef8cb2f524f0" alt="Image" height="320">
+</div>
+
 
 The Medicine panel displays the user's medicine name, strength, image and the amount of medicine left. This data is streamed from a NoSQL database. The widget is then added to a ViewList using the the Build funtionality. This allows users to scrow the Medicine Panels and interact with icons on the panel. 
 
