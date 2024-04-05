@@ -11,7 +11,7 @@
 * [Important Widgets](#important-widgets)
   * [Medicine panel](#medicine-panel)
   * [Adding a New Medicine](adding-a-new-medicine)
-* [SoftwareDocumentation](#software-documentation)
+* [SoftwareDocumentation](software-documentation)
   * [Software Stack](#software-stack)
   * [Widget Design](#widget-design)
  
