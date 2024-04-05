@@ -72,13 +72,6 @@ The medicine card widget within the list View builder was first created using on
 <img src="https://github.com/WillowSaysWhat/Enid-Tracker/assets/126318401/73e30ba2-ecd3-466c-a200-9901fb6db770" alt="Image" height="200">
 </div>
 
-### Page Design
-images to be added
-
-### Medicine class
-### Adding new pages
-
-
 ## Future Improvements
-
+We hope to finish implementing the correct notification style. This would represent an alarm-clock-style popup. This prompt the user to click throught to the app and click the taken button so that medicine quantity would decline correctly.
 
